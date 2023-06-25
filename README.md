@@ -4,4 +4,4 @@
 [Countries APP ](https://countries-app-luiggy.vercel.app/)
 
 ## Preview
-![](src/assets/preview.jpeg)
+![](src/assets/preview.jpg)
