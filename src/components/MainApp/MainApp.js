@@ -73,58 +73,65 @@ export const MainApp = () => {
         <div className="filterSearch">
           <Searchbar />
         </div>
-        <div className="filterName">
-          <p>Por Nombre:</p>
-          <select className="select" onChange={(e) => handleFilterName(e)}>
-            <option className="option" value="0">
-              Alphabetic
-            </option>
-            <option className="option" value="asc">
-              order by A-Z
-            </option>
-            <option className="option" value="desc">
-              order by Z-A
-            </option>
-          </select>
-        </div>
-        <div className="filterPoblacion">
-          <p>Poblacion:</p>
-          <select className="select" onChange={(e) => handleFilterPoblation(e)}>
-            <option className="option" value="0">
-              Select Poblation
-            </option>
-            <option value="asc">Ascendente</option>
-            <option value="desc">Descendente</option>
-          </select>
-        </div>
-        <div className="filterRegion">
-          <p>Region:</p>
-          <select className="select" onChange={(e) => handleFilterRegion(e)}>
-            <option value="0">Select Region:</option>
-            <option value="All">All</option>
-            <option value="Americas">America</option>
-            <option value="Asia">Asia</option>
-            <option value="Africa">Africa</option>
-            <option value="Europe">Europa</option>
-            <option value="Oceania">Oceania</option>
-            <option value="Antarctic">Antartida</option>
-          </select>
-        </div>
-        <div className="filterActivity">
-          <p>Activity:</p>
-          <select className="select" onChange={(e) => handleFilterActivity(e)}>
-            <option value="0">Select Activity</option>
-            {allActivities.map((a, i) => (
-              <option value={a.name} key={i}>
-                {a.name}
+        <div className="filterContainer">
+          <div className="filterName">
+            <p>Por Nombre:</p>
+            <select className="select" onChange={(e) => handleFilterName(e)}>
+              <option className="option" value="0">
+                Alphabetic
               </option>
-            ))}
-          </select>
+              <option className="option" value="asc">
+                order by A-Z
+              </option>
+              <option className="option" value="desc">
+                order by Z-A
+              </option>
+            </select>
+          </div>
+          <div className="filterPoblacion">
+            <p>Poblacion:</p>
+            <select
+              className="select"
+              onChange={(e) => handleFilterPoblation(e)}
+            >
+              <option className="option" value="0">
+                Select Poblation
+              </option>
+              <option value="asc">Ascendente</option>
+              <option value="desc">Descendente</option>
+            </select>
+          </div>
+          <div className="filterRegion">
+            <p>Region:</p>
+            <select className="select" onChange={(e) => handleFilterRegion(e)}>
+              <option value="0">Select Region:</option>
+              <option value="All">All</option>
+              <option value="Americas">America</option>
+              <option value="Asia">Asia</option>
+              <option value="Africa">Africa</option>
+              <option value="Europe">Europa</option>
+              <option value="Oceania">Oceania</option>
+              <option value="Antarctic">Antartida</option>
+            </select>
+          </div>
+          <div className="filterActivity">
+            <p>Activity:</p>
+            <select
+              className="select"
+              onChange={(e) => handleFilterActivity(e)}
+            >
+              <option value="0">Select Activity</option>
+              {allActivities.map((a, i) => (
+                <option value={a.name} key={i}>
+                  {a.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <Link className="create" to="/countries/activity">
+            Create Activity
+          </Link>
         </div>
-
-        <Link className="create" to="/countries/activity">
-          Create Activity
-        </Link>
       </div>
 
       <Paginado
@@ -132,7 +139,6 @@ export const MainApp = () => {
         allCountries={allCountries.length}
         paginate={paginate}
       />
-      <h1>Main APP </h1>
 
       <div className="containerCards">
         {allCountries && allCountries.length > 0 ? (
